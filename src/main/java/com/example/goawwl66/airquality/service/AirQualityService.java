@@ -10,10 +10,18 @@ import java.net.URL;
 import java.net.URLEncoder;
 @Service
 public class AirQualityService {
+
+    // API serviceKey 변수 선언 1-0
+    private String serviceKey;
+
     // data.go.kr로 부터 미세먼지 정보를 가져옴
     public String getAirQualityDataBasic() throws IOException {
+        // serviceKey 담기 1-1
+        // window 환경변수 사용자에 +추가 app.serviceKey
+        serviceKey = System.getenv("app.serviceKey");
+
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=l6cIX%2Fd6ZbPSsGi9Ps%2F9xYQT7rdgvty0%2BLE7ccAs8gsob%2BHAeqltGv4ObCgsz9csfPQxzocVLt5251M1RPguUA%3D%3D"); /*Service Key*/
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=" + serviceKey); /*Service Key*/
         urlBuilder.append("&" + URLEncoder.encode("returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*xml 또는 json*/
         urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("100", "UTF-8")); /*한 페이지 결과 수*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
