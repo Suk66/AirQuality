@@ -19,6 +19,7 @@ public class AirQualityController {
     @GetMapping("/basic")
     public String basic(Model model) throws IOException {
         String result = airQualityService.getAirQualityDataBasic();
+        System.out.println(result);
         model.addAttribute("airQualityData", result);
 
         return "airQuality";
