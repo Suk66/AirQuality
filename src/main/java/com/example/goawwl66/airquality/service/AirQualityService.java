@@ -63,4 +63,18 @@ public class AirQualityService {
 
         return sb.toString();
     }
-}
+
+    // getAirQualityDataBasic 개선 - RestTemplate
+    public String getAirQualityDataRest(String sidoName) throws IOException {
+
+        return null;
+
+    }
+
+    // getAirQualityDataRest 개선 - WebClient
+    public String getAirQualityDataReactive(String sidoName) throws IOException {
+
+        return null;
+    }
+
+    }
