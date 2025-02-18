@@ -1,13 +1,14 @@
 package com.example.goawwl66.airquality.service;
 
+import org.springframework.stereotype.Service;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-
+@Service
 public class AirQualityService {
     // data.go.kr로 부터 미세먼지 정보를 가져옴
     public String getAirQualityDataBasic() throws IOException {
